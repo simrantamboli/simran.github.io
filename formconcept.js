@@ -40,10 +40,7 @@ states.set(135, ' Dadra');
 function validate()
 {   var firstname='';
     var lastname='';
-    var name= 'firstname' + 'lastname';
-     name=document.getElementByName("uname").value; 
-    localStorage.setItem("txtFirstName",firstname);
-     window.location.href="message.html"; 
+    var name= document.getElementByName("uname").value;
     var emailid=document.getElementById("email").value;
     var phnum=document.getElementById("phno").value;
 
@@ -55,6 +52,8 @@ function validate()
        document.getElementById("ibluser").innerHTML="Valid";
        document.getElementById("ibluser").style.visibility="visible";
        document.getElementById("ibluser").style.color="green";
+       firstname = name.sp.split(" ")[0];
+       localStorage.setItem("txtFirstName",firstname);
        return true;
     }
     else{
@@ -83,16 +82,12 @@ function validate()
     return false; 
    }
 
-   //Phone no field
-  /* var no =/^[621-799]-[801-920]-[921-999]$/;
-   if(no.test(phnum))
-   {
-      alert("no is vaild"); 
-   }
-   else{
-       alert("no is not valid");
-   }*/
-   
+ var state = document.getElementById("state").innerHTML;
+ if(state.includes("Invalid")){
+     return false; 
+ } else {
+     return true;
+ }
 }
 
 function formatPhone(){    
@@ -133,7 +128,6 @@ function formatPhone(){
     }
     document.getElementById("phno").value = __phone;
     document.getElementById("state").innerHTML = state;
-    
     }
     
     
