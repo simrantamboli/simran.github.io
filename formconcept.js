@@ -40,7 +40,7 @@ states.set(135, ' Dadra');
 function validate()
 {   var firstname='';
     var lastname='';
-    var name= document.getElementByName("uname").value;
+    var name= document.getElementById("uname").value;
     var emailid=document.getElementById("email").value;
     var phnum=document.getElementById("phno").value;
 
