@@ -60,7 +60,7 @@ function validate()
         document.getElementById("ibluser").innerHTML="Invalid";
         document.getElementById("ibluser").style.visibility="visible";
         document.getElementById("ibluser").style.color="red";
-        false;
+        return false;
      }
      
    
