@@ -1,0 +1,10 @@
+.inputcontainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .providerImg {
+    max-width: 48px;
+    max-height: 48px;
+}
