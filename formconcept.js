@@ -52,7 +52,7 @@ function validate()
        document.getElementById("ibluser").innerHTML="Valid";
        document.getElementById("ibluser").style.visibility="visible";
        document.getElementById("ibluser").style.color="green";
-       firstname = name.sp.split(" ")[0];
+       firstname = name.split(" ")[0];
        localStorage.setItem("txtFirstName",firstname);
        return true;
     }
