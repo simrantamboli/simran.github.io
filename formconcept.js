@@ -46,8 +46,8 @@ function validate()
 
 //Name Field 
 
-    var rgx=/([a-zA-z]{4}\s)([a-zA-Z]{4})$/;
-    if(rgx.test(name))
+    var rgx=/^[a-zA-Z]+$/;
+    if(document.uname.match(name))
     {
        document.getElementById("ibluser").innerHTML="Valid";
        document.getElementById("ibluser").style.visibility="visible";
@@ -67,7 +67,7 @@ function validate()
 
 
     //Email field
-    var regex = /^([a-zA-Z0-9\.]+)@([a-zA-Z0-9]+).([a-z]{2,20})$/;
+    var regex = /^([a-zA-Z0-9\.]+)@([a-zA-Z]+).([a-z]{2,20})$/;
    if(regex.test(emailid))
    {
     document.getElementById("iblemail").innerHTML="Valid";
