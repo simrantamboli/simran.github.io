@@ -47,7 +47,7 @@ function validate()
 //Name Field 
 
     var rgx=/^[a-zA-Z]+$/;
-    if(rgx.test.length>4(name))
+    if(rgx.test.length >4(name))
     {
        document.getElementById("ibluser").innerHTML="Valid";
        document.getElementById("ibluser").style.visibility="visible";
