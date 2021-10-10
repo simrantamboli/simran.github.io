@@ -9,8 +9,9 @@
     <body>
         <form onsubmit="return validate()" action="message.html" />
                 
-                <input  id="uname" placeholder="FullName" type="text" required/><br>
-                <label id="ibluser" style="color:red;visibility: hidden">Invalid</label>
+                <input  id="uname" placeholder="FullName" type="text" onclick="validate(document.form.text)" required/><br>
+                <label id="ibluser" style="color:red;visibility: hidden">
+                    Invalid</label>
                 <br> 
             
                 <input id="email" placeholder="Email" type="text" name="name" required/>
