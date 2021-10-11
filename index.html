@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Form Validation</title>
@@ -9,13 +10,14 @@
     <body>
         <form onsubmit="return validate()" action="message.html" />
                 
-                <input  id="uname" placeholder="FullName" type="text"  /><br>
-                <label id="ibluser" style="color:red;visibility: hidden">
-                    Invalid</label>
+                <input  id="uname" placeholder="FullName" type="text" oninput="validateName()" required/>
+                <label id="ibluser" style="color:red;visibility: hidden">Invalid</label>
                 <br> 
-            
-                <input id="email" placeholder="Email" type="text" name="name" />
+                <br>
+                <input id="email" placeholder="Email" type="text" name="name" oninput="validateEmail()" required/>
                 <label id="iblemail" style="color:red;visibility: hidden">Invalid</label> 
+                <br> 
+                <br>
             <div class="inputcontainer">  
             <input id="phno" placeholder="PhoneNumber" type="text" oninput="formatPhone()" /> 
             <img  class="providerImg" src="invalid.png" name="provider" id="provider"/> 

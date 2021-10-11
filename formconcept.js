@@ -1,93 +1,66 @@
-//Writing Function to validate the Name and Email
-var states = new Map();
+var statesList = ['Andhra Pradesh', 'Assam,Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu & Kashmir','Jharkhand','Karnataka',,'Kerala','Madhya Pradesh'
+,'Maharashtra',' Manipur','Meghalaya',' Mizoram','Nagaland','Orissa','Punjab','Rajasthan','Sikkim','Tamil Nadu','Tripura','Uttarakhand','Uttar Pradesh','West Bengal','Puducherry','Andaman & Nikobar','Chandigarh','Nagar Haveli','Daman',' Lakshadweep','Daman ',' Dadra'];
 
-states.set(100, 'Andhra Pradesh')
-states.set(101, 'Assam,Bihar');
-states.set(102, 'Chhattisgarh');
-states.set(103, 'Goa');
-states.set(104, 'Gujarat');
-states.set(105, ' Haryana');
-states.set(106, 'Himachal Pradesh');
-states.set(107, 'Jammu & Kashmir');
-states.set(108, 'Jharkhand');
-states.set(109, 'Karnataka');
-states.set(110, 'Kerala');
-states.set(111, 'Madhya Pradesh');
-states.set(112, 'Maharashtra');
-states.set(113, ' Manipur');
-states.set(114, 'Meghalaya');
-states.set(115, ' Mizoram');
-states.set(116, 'Nagaland');
-states.set(117, 'Orissa');
-states.set(118, 'Punjab');
-states.set(119, 'Rajasthan');
-states.set(120, 'Sikkim');
-states.set(121, 'Tamil Nadu');
-states.set(122, 'Tripura');
-states.set(123, 'Uttarakhand');
-states.set(124, 'Uttar Pradesh');
-states.set(125, 'West Bengal');
-states.set(130, 'Puducherry');
-states.set(131, 'Andaman & Nikobar');
-states.set(132, 'Chandigarh');
-states.set(133, 'Nagar Haveli');
-states.set(134, 'Daman');
-states.set(135, ' Lakshadweep');
-states.set(135, 'Daman ');
-states.set(135, ' Dadra');
-
-
+var randomUnique = (range, count) => {
+  let nums = new Map();
+  let index = 0;
+  while (nums.size < count) {
+    nums.set(Math.floor(Math.random() * (range - 100 + 1) + 100), statesList[index++]);
+  }
+  return nums;
+};
+var index=0;
+var states = randomUnique(999, 36);
+console.log(states);
 function validate()
-{   var firstname='';
-    var lastname='';
+{   
     var name= document.getElementById("uname").value;
     var emailid=document.getElementById("email").value;
-    var phnum=document.getElementById("phno").value;
+    var isNameValid = name && document.getElementById("ibluser").innerHTML == "Valid";
+    var isPhoneValid = !document.getElementById("state").innerHTML.includes("Invalid");
+    var isEmailValid= emailid && document.getElementById("iblemail").innerHTML == "Valid";
 
-//Name Field 
+    return isNameValid && isPhoneValid && isEmailValid;
+}
 
-    var rgx=/^[a-zA-Z]+$/;
-    if(rgx.test.length > 4(name))
-    {
-       document.getElementById("ibluser").innerHTML="Valid";
-       document.getElementById("ibluser").style.visibility="visible";
-       document.getElementById("ibluser").style.color="green";
-       firstname = name.split(" ")[0];
-       localStorage.setItem("txtFirstName",firstname);
-       return true;
-    }
-    else{
-        document.getElementById("ibluser").innerHTML="Invalid";
-        document.getElementById("ibluser").style.visibility="visible";
-        document.getElementById("ibluser").style.color="red";
-        return false;
-     }
+function validateEmail(){
+  var emailid=document.getElementById("email").value;
+  //Email field
+  var regex = /^([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)$/;
+  if(regex.test(emailid))
+  {
+   document.getElementById("iblemail").innerHTML="Valid";
+   document.getElementById("iblemail").style.visibility="visible";
+   document.getElementById("iblemail").style.color="green";
+  }
+  else{
+   document.getElementById("iblemail").innerHTML="Invalid";
+   document.getElementById("iblemail").style.visibility="visible";
+   document.getElementById("iblemail").style.color="red";
+  }
+}
+
+function validateName(){
+  var firstname='';
+  var name = document.getElementById("uname").value;
+
+  //Name Field 
+  var rgx=/^[a-zA-Z ]+$/;
+  if(name.length > 4 && rgx.test(name))
+  {
+     document.getElementById("ibluser").innerHTML="Valid";
+     document.getElementById("ibluser").style.visibility="visible";
+     document.getElementById("ibluser").style.color="green";
+     firstname = name.split(" ")[0];
+     localStorage.setItem("txtFirstName",firstname);
      
-   
-
-
-    //Email field
-    var regex = /^([a-zA-Z0-9\.]+)@([a-zA-Z]+).([a-z]{2,20})$/;
-   if(regex.test(emailid))
-   {
-    document.getElementById("iblemail").innerHTML="Valid";
-    document.getElementById("iblemail").style.visibility="visible";
-    document.getElementById("iblemail").style.color="green";
-    return true;
+  }
+  else{
+      document.getElementById("ibluser").innerHTML="Invalid";
+      document.getElementById("ibluser").style.visibility="visible";
+      document.getElementById("ibluser").style.color="red";
+      
    }
-   else{
-    document.getElementById("iblemail").innerHTML="Invalid";
-    document.getElementById("iblemail").style.visibility="visible";
-    document.getElementById("iblemail").style.color="red";
-    return false; 
-   }
-
- var state = document.getElementById("state").innerHTML;
- if(state.includes("Invalid")){
-     return false; 
- } else {
-     return true;
- }
 }
 
 function formatPhone(){    
@@ -128,9 +101,9 @@ function formatPhone(){
     }
     document.getElementById("phno").value = __phone;
     document.getElementById("state").innerHTML = state;
-    }
+}
     
     
-  }
+}
 
 
