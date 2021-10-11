@@ -9,34 +9,33 @@
     var name=localStorage.getItem("txtFirstName");
     document.write(('Dear ') +name+ (' Thank you for your enquiry. your 4 digit OTP number has send to your Phone number Enter the OTP'));
 
-    function result(){            
-    var num=2048; 
-    
-    
-    //randon number for Validation 
-    var validateno=document.getElementById("num").value;
-    if(num== validateno)
-    {
-        alert("Validation Successful");
-        document.getElementById("redirect").value;
-        window.location.href="http://pixel6.co/";             
-    }
-    else (validateno!=num && num!=' ' )
-    {
-        alert("Re-Enter the OTP number");
-        document.getElementById("num").focus();
-        document.getElementById("num").value=''; 
-        counter++;      
-        
-    } 
-    
-    if(counter==3){
-        window.location.href="http://pixel6.co/abcdef";    
-    }
+  function result()
+  {
+      num=2048;
+      var validateno=document.getElementById("num").value;
+      if(num == validateno)
+      {
+          alert("Validation Successful");
+          document.getElementById("redirect").value;
+            window.location.href="http://pixel6.co/";
+      }
+      else (validateno != num)
+      {
+            alert("Re-Enter OTP");
+             document.getElementById("num").value=''; 
+             document.getElementById("num").style.visibility="visible";
+            document.getElementById("num").style.color="red"; 
+            document.getElementById("redirect").value;
+            counter++;
+      }
+      if(counter == 3)
+      {
+        window.location.href="http://pixel6.co/abcdef";
+      }
+      
+  }
 
-    
-        
-}  
+   
   </script>
 
 </head>
@@ -44,7 +43,8 @@
 <body>
     <form>
         <div>
-            <input id="num" placeholder="Enter Otp" type="number" maxlength="4"  required/>
+            <input id="num" placeholder="Enter Otp" type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;"/>
+            <label id="ibluser" style="color:green;visibility: hidden">Validation Successful</label>
 
             <br>
             <br>
