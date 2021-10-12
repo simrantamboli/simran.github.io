@@ -11,21 +11,22 @@
 
   function result()
   {
-      num=2048;
-      var validateno=document.getElementById("num").value;
+      var num=2048;
+      var validateno= document.getElementById("num").value;
       if(num == validateno)
       {
-          alert("Validation Successful");
-          document.getElementById("redirect").value;
+            document.getElementById("validationLabel").innerHTML="Validation Successful";
+            document.getElementById("validationLabel").style.visibility="visible";
+            document.getElementById("validationLabel").style.color="green";
             window.location.href="http://pixel6.co/";
       }
-      else (validateno != num)
+      else if(validateno != num)
       {
-            alert("Re-Enter OTP");
-             document.getElementById("num").value=''; 
-             document.getElementById("num").style.visibility="visible";
-            document.getElementById("num").style.color="red"; 
-            document.getElementById("redirect").value;
+            document.getElementById("validationLabel").innerHTML="Re-Enter OTP";
+            document.getElementById("validationLabel").style.visibility="visible";
+            document.getElementById("validationLabel").style.color="red"; 
+            document.getElementById("num").value='';
+           
             counter++;
       }
       if(counter == 3)
@@ -44,7 +45,7 @@
     <form>
         <div>
             <input id="num" placeholder="Enter Otp" type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;"/>
-            <label id="ibluser" style="color:green;visibility: hidden">Validation Successful</label>
+            <label id="validationLabel" style="color:green;visibility: hidden">Validation Successful</label>
 
             <br>
             <br>
