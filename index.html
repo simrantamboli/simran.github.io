@@ -2,32 +2,39 @@
 <html>
     <head>
         <title>Form Validation</title>
-        <script src="formconcept.js" type="text/javascript">
-       
-        </script>
-         <link rel="stylesheet" href="style.css">
+        <script src="formvalidation.js" type="text/javascript"></script>
     </head>
+    <link rel="stylesheet" href="style.css">
     <body>
-        <form onsubmit="return validate()" action="message.html" />
-                
-                <input  id="uname" placeholder="FullName" type="text" oninput="validateName()" required/>
-                <label id="ibluser" style="color:red;visibility: hidden">Invalid</label>
-                <br> 
-                <br>
-                <input id="email" placeholder="Email" type="text" name="name" oninput="validateEmail()" required/>
-                <label id="iblemail" style="color:red;visibility: hidden">Invalid</label> 
-                <br> 
-                <br>
-            <div class="inputcontainer">  
-            <input id="phno" placeholder="PhoneNumber" type="text" oninput="formatPhone()" /> 
+        <div class="container">
+            <div class="header">
+            <h2>Form Validation</h2>
+            </div>
+        <form onsubmit="validate()" class="form" id="form" action="message.html" />
+        <div class="form-control" >
+            
+            <input type="text" placeholder="Username" id="uname" onkeypress="return /[a-zA-Z ]/i.test(event.key)" name="name" oninput="validateName()" required/>  
+            <label  class="lbname" id="lbluser" style="visibility:hidden">Invalid</label>  
+        </div>
+        
+           
+    
+        <div class="form-control">
+            
+            <input type="text" placeholder="Email" id="email" oninput="validateEmail()" required />
+            <label class="lbemail" id="lblemail" style="visibility:hidden"  />Invalid</label>
+        </div>
+
+        <div class="form-control">
+            
+            <input type="text" placeholder="Phone Number" id="phno" oninput="formatPhone()" required/>
             <img  class="providerImg" src="invalid.png" name="provider" id="provider"/> 
-           </div>
-           <label id="state" style="color:red;"></label>
-           <br><br>
-           <button  type="submit">Submit</button> 
-
-
-        </form>
-
+        </div>
+        <label class="state" id="state" style="color:red;"></label>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
     </body>
 </html>

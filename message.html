@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" href="style.css" />
-    <title>My Page</title>
-    <script type="text/Javascript">
-    var counter=0;  
+    <head>
+        <title>My OTP Page</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/javascript">
+    var counter=0;
+    
     var name=localStorage.getItem("txtFirstName");
-    document.write(('Dear ') +name+ (' Thank you for your enquiry. your 4 digit OTP number has send to your Phone number Enter the OTP'));
+     document.write('Dear ' +name+ ' Thank you for Enquiry.A 4 digit number has been sent to your phone number');
+    
 
-  function result()
+    function result()
   {
       var num=2048;
-      var validateno= document.getElementById("num").value;
-      if(num == validateno)
+      var validateno= document.getElementById("otpnum").value;
+      if(num == validateno )
       {
             document.getElementById("validationLabel").innerHTML="Validation Successful";
             document.getElementById("validationLabel").style.visibility="visible";
             document.getElementById("validationLabel").style.color="green";
             window.location.href="http://pixel6.co/";
       }
-      else if(validateno != num)
+    
+      else if(validateno != num && validateno != '')
       {
             document.getElementById("validationLabel").innerHTML="Re-Enter OTP";
             document.getElementById("validationLabel").style.visibility="visible";
             document.getElementById("validationLabel").style.color="red"; 
-            document.getElementById("num").value='';
+            document.getElementById("otpnum").value='';
            
             counter++;
       }
@@ -36,22 +38,24 @@
       
   }
 
-   
-  </script>
-
-</head>
-
-<body>
-    <form>
+        
+        </script>
+    </head>
+    <link rel="stylesheet" href="style.css">
+    <body>
+       
+        <div class="container1">
+        <form class="form1">
+            <div class=form-otp>
+                <label>OTP Number</label> 
+                <input type="number" placeholder="Enter OTP" id="otpnum" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;"/> 
+                <label id="validationLabel" style="color:green;visibility: hidden">Validation Successful</label>
+                <br>
+                <br>
+                <button id="redirect" onclick="result()" type="button">Validate </button>
+            </div>
+        </form>
         <div>
-            <input id="num" placeholder="Enter Otp" type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;"/>
-            <label id="validationLabel" style="color:green;visibility: hidden">Validation Successful</label>
 
-            <br>
-            <br>
-            <button id="redirect" onclick="result()" type="button">Validate </button>
-        </div>
-    </form>
-</body>
-
+    </body>
 </html>
