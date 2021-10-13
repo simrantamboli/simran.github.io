@@ -3,14 +3,14 @@ var statesList = ['Andhra Pradesh', 'Assam,Bihar','Chhattisgarh','Goa','Gujarat'
 
 function validate()
 {
-    var name= document.getElementById("uname").value;
+   var name= document.getElementById("uname").value;
     var emailid=document.getElementById("email").value;
     var isNameValid = name && document.getElementById("lbluser").innerHTML == "Valid";
     var isPhoneValid = !document.getElementById("state").innerHTML.includes("Invalid");
-    var isEmailValid= emailid && document.getElementById("ilblemail").innerHTML == "Valid";
-
-    return isNameValid  && isPhoneValid && isEmailValid;   
-   
+    var isEmailValid= emailid && document.getElementById("lblemail").innerHTML == "Valid";
+    
+    return isNameValid  && isPhoneValid && isEmailValid; 
+        
 }
 
 function validateName(){
@@ -27,15 +27,15 @@ function validateName(){
       firstname = name.split(" ")[0];
       localStorage.setItem("txtFirstName",firstname);
     }
-    else{
+    else { 
         document.getElementById("lbluser").innerHTML="Invalid";
         document.getElementById("lbluser").style.visibility="visible";
-        document.getElementById("lbluser").style.color="red";
-       
+        document.getElementById("lbluser").style.color="red";     
         
      }
+         
 }
-  function validateEmail(){
+function validateEmail(){
     var emailid=document.getElementById("email").value;
     //Email field
     var regex = /^([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z](?:[a-zA-Z-]*[a-zA-Z])?\.)+[a-zA-Z](?:[a-zA-Z-]*[a-zA-Z])?)$/;
@@ -51,6 +51,7 @@ function validateName(){
      document.getElementById("lblemail").style.color="red";
     }
 }
+  
   function formatPhone(){    
     var __phone=document.getElementById("phno").value;
     var state='Invalid Number';

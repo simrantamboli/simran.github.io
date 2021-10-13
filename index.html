@@ -10,10 +10,10 @@
             <div class="header">
             <h2>Form Validation</h2>
             </div>
-        <form onsubmit="validate()" class="form" id="form" action="message.html" />
+        <form onsubmit="return  validate()" class="form" id="form" action="message.html" />
         <div class="form-control" >
             
-            <input type="text" placeholder="Username" id="uname" onkeypress="return /[a-zA-Z ]/i.test(event.key)" name="name" oninput="validateName()" required/>  
+            <input type="text" placeholder="Username" id="uname" onkeypress="return /[a-zA-Z ]/i.test(event.key)" name="name" oninput=" return validateName()" required/>  
             <label  class="lbname" id="lbluser" style="visibility:hidden">Invalid</label>  
         </div>
         
@@ -21,7 +21,7 @@
     
         <div class="form-control">
             
-            <input type="text" placeholder="Email" id="email" oninput="validateEmail()" required />
+            <input type="text" placeholder="Email" id="email" oninput=" return validateEmail()" required />
             <label class="lbemail" id="lblemail" style="visibility:hidden"  />Invalid</label>
         </div>
 
